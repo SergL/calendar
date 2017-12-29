@@ -4,7 +4,7 @@
 include_once("php/translit.fn");
 
 
-if (!empty ($debag))
+if (!empty ($debug))
 {
 	$lokfail=(__FILE__);
 //  преобразования путей в массивы

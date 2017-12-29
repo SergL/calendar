@@ -15,13 +15,13 @@ $date=date("d.m.y"); // число.месяц.год
 //включить отладку 
 $time=date('H:i');
 //echo "$time"; 
-$debag=0;
+$debug=0;
 //получаем данные формы  
 if (!empty ($_POST))
 {
 	foreach ($_POST as $key => $value )
 	{
-		if ($debag!=0)
+		if ($debug!=0)
 		{
 			echo " <font color='red' ><b> $key </b></font> - <font color='green' > $value </font> <hr color='blue'>";
 		}

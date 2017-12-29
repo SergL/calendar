@@ -24,15 +24,15 @@ info("время сервера $testdate");
 
 $date=date("d.m.y"); // число.месяц.год 
 //включить отладку 
-$debag=1;
+$debug=1;
 //получаем данные формы  
 
 if (!empty ($_POST))
 {
-	$debag=0;
+	$debug=0;
 	foreach ($_POST as $key => $value )
 	{
-			if ($debag!=0)
+			if ($debug!=0)
 			{
 				if (is_array($value)) 
 				{

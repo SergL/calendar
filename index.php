@@ -6,14 +6,15 @@ setcookie("Googlecalendar", $valuec, time() + 60 * 60 * 24 * 1);  /* срок д
 //служебный раздел 
 date_default_timezone_set('Europe/Kiev');
 
+$emailadmin = "virikidorhom@gmail.com";  //доп адрес
 
 //подключаем файлы с функциями
-include('php/functionbd.php');
-include('php/translit.fn');
-include('php/calfunct.php');
-include('php/cssin.php');
-include('php/array_bd.php');
-
+include_once(__DIR__ . '/php/functionbd.php');
+include_once(__DIR__ . '/php/translit.fn');
+include_once(__DIR__ . '/php/calfunct.php');
+include_once(__DIR__ . '/php/cssin.php');
+include_once(__DIR__ . '/php/array_bd.php');
+include_once(__DIR__ . '/template/template.php');
 //функция вывода тестовой информации
 unset($_SESSION['calendarUA']['log']);
 function logtest($value)
@@ -22,22 +23,20 @@ function logtest($value)
 }
 
 
-//pre($valuec);
-//pre($_COOKIE); 
-//pre($_SESSION);
-//pre($_POST[session]);
+if (isset($newlang) || empty ($lang)) {
+    $lang = "ru";
+}
 $testdate = date("d.m.y H:i"); // число.месяц.год
-info("время сервера $testdate");
+info(sprintf($tmpl[$lang]["time_server"], $testdate));
 
 $date = date("d.m.y"); // число.месяц.год
 //включить отладку 
-$debag = 1;
+$debug = 1;
 //получаем данные формы  
-
 if (!empty ($_POST)) {
-    $debag = 0;
+    $debug = 0;
     foreach ($_POST as $key => $value) {
-        if ($debag != 0) {
+        if ($debug != 0) {
             if (is_array($value)) {
                 logtest("<font color='red' ><b> $key </b></font> - <font color='green' >");
                 logtest($value);
@@ -56,7 +55,7 @@ if (empty ($ssid)) {
     $ssid = rand();
 }
 
-if (!empty ($newlang)) {
+if (isset($newlang) && !empty ($newlang)) {
     $_SESSION['setting'][$ssid]['lang'] = $newlang;
 }
 
@@ -66,47 +65,10 @@ if (!empty ($_SESSION['setting'][$ssid])) {
         //echo " <font color='red' ><b> $key </b></font> - <font color='green' > $val</font> <hr color='blue'>";
     }
 }
-if (empty ($lang))
-    $lang = ru;
 
-
-$emailadmin = "virikidorhom@gmail.com";  //доп адрес
-
-//отправляем заявку
 if (!empty ($newacc)) {
-    echo "<div class='modal'><input class='modal-open' id='modal-newacc' type='checkbox'  checked hidden ><div class='modal-wrap' aria-hidden='true' role='dialog'><label class='modal-overlay' for='modal-newacc'></label><div class='modal-dialog'><div class='modal-header' ></div><div class='modal-body' >";
-    if ((!empty ($mail)) && (!empty ($fbacc))) {
-        $mail = clean($mail);
-        $fbacc = clean($fbacc);
-        $acclink = clean($acclink);
-        $msg = " 
-Сообщение с сайта Танго календарь
-Заявка на открытие доступа к календарю 
-  
-  Ссылка: $acclink
-
- Почта: $mail
-
- facebook : $fbacc
-
-";
-        if (mail("$emailadmin", "Заявка на открытие доступа к календарю", "$msg")) {
-
-            echo "<p class='infog' >
-Ваша заявка отправлена, спасибо </p>";
-        } else {
-            echo "<p class='infor' >
-ошибка отправки заявки, попробуйте еще </p> ";
-        }
-    } else {
-        echo "<p class='infor' >
-Не все поля заполнены </p>";
-    }
-    echo "</div><div class='modal-footer'><label class='btn btn-primary' for='modal-newacc'> Закрыть!</label><br> &nbsp <br></div></div></div></div>";
-
-
+    send_email_requet($emailadmin, $tmpl,$lang,$acclink, $mail, $fbacc);
 }
-
 
 if (!empty ($gcsel)) {
     unset($_SESSION[gcsel][$ssid]);
@@ -124,6 +86,9 @@ if (empty ($gcsel)) {
     //$capname='Фестивали Украины ';
 }
 
+
+//отправляем заявку
+
 //pre($_POST);
 
 
@@ -132,8 +97,22 @@ $filename = "local.ini";
 if (file_exists($filename)) {
 // echo " <h2>файл есть </h2>";
 // включаем файл конфигурации 
-    include("$filename");
+    include_once("$filename");
 } else {
+}
+
+if (!empty ($recalreload)) {
+    unset($_SESSION['calendarbd']);
+    $calreload = 1;
+}
+
+//unset($_SESSION['calendarua']);
+
+//если не пустой массив списка выбранных календарей
+if (!empty ($gcsel)) {
+    unset($calselect);
+    unset($_SESSION['calendarua'][$ssid]);
+    $calselect = $gcsel;
 }
 
 
@@ -158,29 +137,16 @@ if (file_exists($filename)) {
     }
 }
 
-if (!empty ($recalreload)) {
-    unset($_SESSION['calendarbd']);
-    $calreload = 1;
-}
-
-//unset($_SESSION['calendarua']); 
-
-//если не пустой массив списка выбранных календарей
-if (!empty ($gcsel)) {
-    unset($calselect);
-    unset($_SESSION['calendarua'][$ssid]);
-    $calselect = $gcsel;
-}
 
 //unset($_SESSION['calendarua'][$ssid]);
 if (empty ($_SESSION['calendarua'][$ssid])) {
     foreach ($calselect as $key => $val) {
         //pre($key);
         if (!empty ($gcsel)) {
-            $_SESSION['calendarua'][$ssid][] = Calics("php/bd/$val");
+            $_SESSION['calendarua'][$ssid][] = Calics(__DIR__ . "/php/bd/$val");
             //$Calinfo ="test calendarua 0 $val";
         } else {
-            $_SESSION['calendarua'][$ssid][] = Calics("php/bd/$key.ics");
+            $_SESSION['calendarua'][$ssid][] = Calics(__DIR__ . "/php/bd/$key.ics");
             //$Calinfo ="test calendarua 1";
         }
     }
@@ -216,16 +182,16 @@ if (empty ($_SESSION['calendarbd'])) {
         $gcalfname = translit($gcalfname);
         //  проверка файла
 
-        if ((file_exists("php/bd/$gcalfname")) && (empty ($calreload))) {
+        if ((file_exists(__DIR__ . "/php/bd/$gcalfname")) && (empty ($calreload))) {
             //echo "<p>  файл календаря $gcalfname есть </p>";
         } else {
 
             $result = getSslPage($gcallink);
 //echo "<p> пишем файл $gcalfname </p>";
-            $f = fopen("php/bd/$gcalfname", "w+");
+            $f = fopen(__DIR__ . "/php/bd/$gcalfname", "w+");
             fwrite($f, "$result");
             fclose($f);
-            if (file_exists("php/bd/$gcalfname")) {
+            if (file_exists(__DIR__ . "/php/bd/$gcalfname")) {
 //echo "<p>  файл календаря $gcalfname создан </p>";
             }
 
@@ -248,12 +214,12 @@ if (empty ($_SESSION['calendarbd'])) {
     if (!empty ($calreload)) {
         $result = getSslPage('https://calendar.google.com/calendar/ical/p263ecltmp6v2komsnjas1d6q4%40group.calendar.google.com/public/basic.ics');
 //echo "<p> пишем файл $gcalfname </p>";
-        $f = fopen("php/bd/tango_event_in_ua_fest.ics", "w+");
+        $f = fopen(__DIR__ . "/php/bd/tango_event_in_ua_fest.ics", "w+");
         fwrite($f, "$result");
         fclose($f);
         $result = getSslPage('https://calendar.google.com/calendar/ical/55ddnvrlvbto13pq0t82ps9hek%40group.calendar.google.com/public/basic.ics');
 //echo "<p> пишем файл $gcalfname </p>";
-        $f = fopen("php/bd/tango_event_in_ua_mclass.ics", "w+");
+        $f = fopen(__DIR__ . "/php/bd/tango_event_in_ua_mclass.ics", "w+");
         fwrite($f, "$result");
         fclose($f);
     }
@@ -276,7 +242,7 @@ if ($lang == 'ua')
     $title = 'Танго календар';
 if ($lang == 'en')
     $title = 'Tango Calendar Ua';
-include('php/headhtml.php');
+include_once(__DIR__ . '/php/headhtml.php');
 
 echo "
 <!DOCTYPE HTML>
@@ -288,21 +254,21 @@ echo "
 if ((empty ($_SESSION['caltypes'])) || (!empty ($calreload))) {
 
     unset($_SESSION['caltypes']);
-    foreach ($calendarbd as $cantry => $value) {
+    foreach ($calendarbd as $country => $value) {
         foreach ($value as $city => $value) {
             foreach ($value as $type => $value) {
                 foreach ($value as $key => $val) {
-                    $fsize = filesize("php/bd/$val"); //размер файла
+                    $fsize = filesize(__DIR__ . "/php/bd/$val"); //размер файла
                     // если это файл не нулевого размера
                     if ($fsize > 0) {
 
-                        $res = Calics("php/bd/$val");
+                        $res = Calics(__DIR__ . "/php/bd/$val");
                         //pre($res);
                         $k = key($res);
                         $calname = $res[$k]['calname'];
 //$calcity[$cantry][$city][$type][]=$res; 
 
-                        $caltypes[$cantry][$type][$city][][$calname] = $val;
+                        $caltypes[$country][$type][$city][][$calname] = $val;
                     }
                 }
             }
@@ -410,7 +376,7 @@ echo "</form>";
 for ($xzx = 1; $xzx <= $cmont; $xzx++) {
     if ($xzx == 1)
         $fixnext = $calnext;
-    include('calendarua.php');
+    include_once('calendarua.php');
     $next = $calnext;
     unset($caption);
 }
@@ -485,7 +451,7 @@ onclick=\"form.submit()\" /> $seldivname3
 </p>";
 
 
-$cantry = 'Украина';
+$country = 'Украина';
 $kx = $x;
 foreach ($calselics as $key => $val) {
 
@@ -495,7 +461,7 @@ foreach ($calselics as $key => $val) {
         $_SESSION[acc][$ssid][$kx] = 1;
     }
 
-    if (!empty ($caltypes[$cantry][$val])) {
+    if (!empty ($caltypes[$country][$val])) {
         $typv = $calselval[$lang][$val];
         echo "<div class='accordion2'> <input name='acc[$kx]' value='1' class='toggle-box' id='block-$kx' type='checkbox' $acheck[$kx] >    <label for='block-$kx' onclick=\"ajax({
 url:'get_ajax.php',
@@ -511,7 +477,7 @@ success:function(data){document.getElementById('status').innerHTML=data;}
         $typ = $val;
 
         if ('milonga' != $val) {
-            foreach ($caltypes[$cantry][$val] as $key => $val) {
+            foreach ($caltypes[$country][$val] as $key => $val) {
                 $kx = $kx + 1;
                 if (empty ($acc)) {
                     $acheck[$kx] = 'checked';
@@ -532,7 +498,7 @@ success:function(data){document.getElementById('status').innerHTML=data;}
 })\"
 > $keyv </label> <div class='box'>";
                 //echo "$key <br>";
-                foreach ($caltypes[$cantry][$typ][$key] as $k => $v) {
+                foreach ($caltypes[$country][$typ][$key] as $k => $v) {
 
                     $x = $x + 1;
                     $k = key($v);
@@ -553,7 +519,7 @@ success:function(data){document.getElementById('status').innerHTML=data;}
                 echo "  </div></div>";
             }
         } else {
-            foreach ($caltypes[$cantry][$val] as $key => $val) {
+            foreach ($caltypes[$country][$val] as $key => $val) {
                 $x = $x + 1;
                 foreach ($val as $k => $v)
                     $t = implode('|', $v);
@@ -675,7 +641,7 @@ document.getElementById(id).select();
 $test = 0;
 if ((file_exists("local.ini")) || (!empty($test))) {
     echo "
-<div class='tdebag' style='display: block; ' >";
+<div class='tdebug' style='display: block; ' >";
 
 //pre($calendars); 
     pre($_COOKIE);
@@ -688,6 +654,38 @@ if ((file_exists("local.ini")) || (!empty($test))) {
     echo "</div>";
 }
 
+function send_email_requet($emailadmin, $tmpl,$lang,$acclink, $mail, $fbacc)
+{
+
+    echo "<div class='modal'>
+    <input class='modal-open' id='modal-newacc' type='checkbox'  checked hidden >
+    <div class='modal-wrap' aria-hidden='true' role='dialog'>
+        <label class='modal-overlay' for='modal-newacc'>
+        </label><div class='modal-dialog'>
+            <div class='modal-header' ></div><div class='modal-body' >";
+    if ((!empty ($mail)) && (!empty ($fbacc))) {
+        $mail = clean($mail);
+        $fbacc = clean($fbacc);
+        $acclink = clean($acclink);
+        $msg = sprintf($tmpl[$lang]["email_msg"], $acclink, $mail, $fbacc);
+        if (mail("$emailadmin", $tmpl[$lang]["email_subj"], "$msg")) {
+
+            echo "<p class='infog' >
+                    Ваша заявка отправлена, спасибо </p>";
+        } else {
+            echo "<p class='infor' >
+                    ошибка отправки заявки, попробуйте еще </p> ";
+        }
+    } else {
+        echo "<p class='infor' >
+                    Не все поля заполнены </p>";
+    }
+    echo "</div><div class='modal-footer'><label class='btn btn-primary' for='modal-newacc'> Закрыть!</label><br> &nbsp <br></div></div></div></div>";
+
+
+}
+
 ?>
 
 </HTML>
+
