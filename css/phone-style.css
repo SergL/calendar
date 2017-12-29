@@ -1,0 +1,133 @@
+﻿ html {
+	width:100%;
+	height: 100%;
+}
+
+ 
+ @media all and (orientation:portrait) {
+ 	 html {
+      background: url(../img/mobbody0.jpg) no-repeat; 
+ background-size: 100%;
+	background-attachment: fixed; 
+      }
+	/* стили для портрета */
+div.calendar{
+	width: 95%;
+	position: relative;
+	right: 1%;
+	top: 1%;
+	float: none; 
+}
+div.calendar table {
+	width: 95%;
+	heigh: 600px; 
+}
+.accordion {
+	width: 100%;
+}
+.calendars {
+	float: left;
+	width: 80%;
+	border: solid red 1px; 
+}
+.toggle-box + label {
+	 font: normal 10em Helvetica, Arial, sans-serif;
+	text-align: center; 
+}
+.box input{
+	zoom: 3.5;
+}
+.help .box input{
+	zoom: 1;
+}
+.box {
+	 font: normal 4em Helvetica, Arial, sans-serif;
+}
+.box .toggle-box + label {
+	 font: normal 1.2em Helvetica, Arial, sans-serif;
+	text-align: left; 
+}
+.box .box {
+	 font: normal 1em Helvetica, Arial, sans-serif;
+}
+.box .box .toggle-box + label {
+	background: -moz-linear-gradient(
+		top,
+		#a3a3a3 0%,
+		#fafaf9 50%,
+		#000000);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#a3a3a3),
+		color-stop(0.50, #fafaf9),
+		to(#000000));
+	 font: normal 1.2em Helvetica, Arial, sans-serif;
+	color: #ffffff; 
+	text-align: center; 
+}
+.box .box .box {
+	 font: normal 1em Helvetica, Arial, sans-serif;
+}
+.box .box .box .toggle-box + label {
+	 font: normal 1.2em Helvetica, Arial, sans-serif;
+}
+.modal-dialog {
+    width: 90%;
+    max-width: 1200px;
+ font: normal 2.5em Helvetica, Arial, sans-serif;
+   }
+ .newcalform {
+	position: relative; 
+	top: 200%;
+	left: 5%;
+	clear: left; 
+ }
+ .formlang input {
+ 	zoom: 5;
+ }
+ .formlang {
+ 	 font: normal 2em Helvetica, Arial, sans-serif;
+ }
+}
+@media all and (orientation:landscape) {
+	/* стили для пейзажа */
+	 html {
+      background: url(../img/mobbody1.jpg) no-repeat;
+        background-size: 100%;
+	background-attachment: fixed; 
+      }
+}
+img {
+	width:60%;
+	padding: 10px; 
+}
+div.help .accordion {
+	width:100%;
+	position: relative; 
+	left:0;
+}
+div.help .toggle-box + label {
+	 font: normal 5em Helvetica, Arial, sans-serif;
+	text-align: center; 
+}
+.calendar .help {
+	padding: 5px; 
+	zoom: 2;
+	text-align : left; 
+	position: relative; 
+	left: 5%;
+	width: 90%;
+}
+.calendar .help a{
+	color: #00ff00; ,
+}
+.tdebag {
+	overflow: auto; 
+	padding: 1em; 
+}
+span button {
+	zoom: 2;
+}
+pre {
+	background: rgba(250,250,250,0.9);
+}

@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Thats protected Area!"
+AuthUserFile /home/epl/domains/xmen/.htpasswd
+Require valid-user
+<Files .htpasswd>
+   deny from all  #запрет доступа из браузера к .htpasswd
+</Files>

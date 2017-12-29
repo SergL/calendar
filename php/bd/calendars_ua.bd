@@ -1,0 +1,7 @@
+﻿<?
+//ручной список календарей для обработки 
+//фестивали Украины 
+$calselect['ru/ua-tango_event_in_ua_fest']='https://calendar.google.com/calendar/ical/p263ecltmp6v2komsnjas1d6q4%40group.calendar.google.com/public/basic.ics';
+
+$calselect['en-tango_event_in_ua_fest']='https://calendar.google.com/calendar/ical/ubao5j8a7p293kiii70dapo4bc%40group.calendar.google.com/public/basic.ics';
+?>

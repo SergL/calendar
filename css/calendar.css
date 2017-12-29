@@ -1,0 +1,38 @@
+/*не активный месяц*/
+.emptytd {
+	background-color: rgba(0,0,0,0.3);  
+	color: rgba(250,250,250,0.5);
+}
+/*c событием день*/
+div.today {
+	border-radius: 3px; 
+	border-style: solid; 
+	border-color : rgba(0,250,0,0.8);
+background: -moz-linear-gradient(top, rgba(59,226,34,0.83) 1%, rgba(59,226,34,0.8) 15%, rgba(59,226,34,1) 19%, rgba(59,226,34,1) 20%, rgba(27,239,0,1) 50%, rgba(67,219,43,1) 80%, rgba(67,219,43,1) 81%, rgba(67,219,43,0.8) 85%, rgba(67,219,43,0.84) 100%);
+background: -webkit-linear-gradient(top, rgba(59,226,34,0.83) 1%,rgba(59,226,34,0.8) 15%,rgba(59,226,34,1) 19%,rgba(59,226,34,1) 20%,rgba(27,239,0,1) 50%,rgba(67,219,43,1) 80%,rgba(67,219,43,1) 81%,rgba(67,219,43,0.8) 85%,rgba(67,219,43,0.84) 100%);
+background: linear-gradient(to bottom, rgba(59,226,34,0.83) 1%,rgba(59,226,34,0.8) 15%,rgba(59,226,34,1) 19%,rgba(59,226,34,1) 20%,rgba(27,239,0,1) 50%,rgba(67,219,43,1) 80%,rgba(67,219,43,1) 81%,rgba(67,219,43,0.8) 85%,rgba(67,219,43,0.84) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d43be222', endColorstr='#d643db2b',GradientType=0 );
+position: relative; 
+left: 4%; 
+top: 5%; 
+	cursor: pointer; 
+	width: 90%;
+	height: 90%;
+	margin-left: 1px; 
+	}
+	/* текущий день */
+div.disdey {
+	border-radius: 3px; 
+background-color: rgba(0,0,255,0.6);
+ position: relative; 
+	border-width: 1px; 
+	border-style: solid; 
+	border-color: rgb(255,0,0);
+	width: 95%;
+	height:100%;
+	padding: 2%; 
+	color: #ff0000; 
+}
+.vdey {
+	color: #ff0000; 
+}

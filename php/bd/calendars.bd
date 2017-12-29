@@ -1,0 +1,10 @@
+﻿<?
+//ручной список календарей для обработки 
+//календарь школы
+$calselect['shool_Tango_of_Liberty']='https://calendar.google.com/calendar/ical/qbrcjlo4g227t7qr18tpnp9q44%40group.calendar.google.com/public/basic.ics';
+//фестивали Украины 
+$calselect['tango_event_in_ua_fest']='https://calendar.google.com/calendar/ical/p263ecltmp6v2komsnjas1d6q4%40group.calendar.google.com/public/basic.ics';
+
+//милонги Запорожья
+$calselect['milonga_in;_Zp']='https://calendar.google.com/calendar/ical/msrdpanjlg24khu36mmilfdpr0%40group.calendar.google.com/public/basic.ics';
+?>

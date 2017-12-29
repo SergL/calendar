@@ -1,0 +1,676 @@
+ html {
+    background-color: rgb(150,150,150);
+	width:100%;
+	height:100%;
+}
+
+
+div.calendar{
+  background-color: rgba(20,20,200,0.2);
+  text-align: center;
+	border-style: solid;
+	border-width: 2px;
+	border-color: red;
+	width: 65%;
+	position: absolute;
+	right: 2%;
+	top: 1%;
+	padding: 1em;
+	margin-right: 0.5em;
+	border-radius: 2em;
+	border-style: solid;
+	border-width: 5px;
+	border-color: rgba(20,20,20,0.1);
+}
+
+table.calendar{
+  border-radius: 0.2em;
+  border-style: solid;
+	text-align: center; 
+	font-size: 2em;
+	width: 90%;
+	background-color: rgba(10,200,220,0.5);
+	  background-color: rgba(20,250,255,0.5);
+  text-shadow: -1px -1px 3px #000000, 3px 3px 8px #000000, 4px 4px 9px #000000;
+  color: #fff; 
+}
+table.calendarw th {
+	border-bottom: 2px solid blue;
+   height: 10px;
+}
+
+table.calendarw{
+  border-radius: 0.8em;
+  border-color: red;
+  border-style: solid;
+	text-align: center; 
+	font-size: 2em;
+	width: 90%;
+	min-width: 600px;
+  height: 90%;
+	background-color: rgba(10,200,220,0.5);
+}
+
+div.foot{
+	background-color: rgba(10,200,200,1);
+	position: 0% 90%;
+	text-align: center;
+	height: 20px;
+}
+
+
+table.calendar th{
+  min-width: 50px;
+  border-style: solid;
+	background-color: rgba(150,150,150,0.5);
+}﻿
+table.calendarw th{
+min-width: 50px;
+width: 25%;
+ border-style: solid;
+background-color: rgba(150,150,150,0.5);
+}﻿
+
+tr {
+  border-style: solid; 
+ 
+ background: -moz-linear-gradient(#00BBD6, #96ffff);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#96FFFF));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#96FFFF');
+min-height: 50px;
+}﻿
+
+button.cl{
+	background-color: rgba(0,0,150,0.5);
+	
+	border-style: none;
+	font-size: 1em;
+	color: red;
+	width: 80%;
+}
+
+button.cal{ 
+ background: -moz-linear-gradient(#005500, #00d800);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#005500), to(#00d800));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#005500', endColorstr='#00d800');
+	   border-radius: 5px;
+	   border-style: solid;
+	   border-color: rgb(20,200,0);
+	   border-width: 2px;
+	   color: rgb(255,255,0);
+	   font-size: 0.5em;
+
+}
+button.lang{ 
+ background: -moz-linear-gradient(#005500, #00d800);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#005500), to(#00d800));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#005500', endColorstr='#00d800');
+	  
+	   border-style: solid;
+	   border-color: rgb(0,0,0);
+	   border-width: 2px;
+	   color: rgb(255,255,0);
+	float: right;
+	padding: 2px 10px; 
+	margin: 0px 10px; 
+}
+div.selectbox select { 
+   border-style: none;
+	background: transparent;
+	width: 100%
+}
+div.selectbox select:first-child { 
+	background: rgba(0,255,255,0.9);
+	color: #000; 
+}
+ div.selectbox  { 
+ background: -moz-linear-gradient(#005500, #00d800);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#005500), to(#00d800));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#005500', endColorstr='#00d800');
+	width: 25%;
+	float: left; 
+	   border-style: solid;
+	   border-color: rgb(0,0,0);
+	   border-width: 2px;
+	color: #ffff00; 
+}
+	button.cl{
+	background-color: rgba(100,100,250,0.5);
+	border-radius: 100%;
+	font-size: 1em;
+	color: red;
+	margin-left: 6%;
+	margin-right: 10%;
+	border-style: none ; 
+	border-color: rgba(100,100,100,0.2);
+	width: 60px; 
+	height: 60px
+}
+td.cl:  {
+  border-style: solid; 
+ 
+ background: -moz-linear-gradient(#00BBD6, #96ffff);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#96FFFF));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#96FFFF');
+
+}﻿
+
+
+input:checked + span { 
+    color: rgb(225,250,100);
+	  text-shadow: 1px 1px 1px rgb(0,0,0), 1px 1px 20px rgb(0,0,0);
+    font-weight: bold;
+ }
+ 
+ input:not(:checked) + span { 
+    color: rgb(215,240,90);
+	  text-shadow: -1px -1px 1px #000000, 1px 1px 1px rgb(0,0,0);
+ 
+ }
+ 
+p input:checked + span { 
+    color: rgb(240,0,0); 
+	  text-shadow: 1px 1px 20px #000000, 1px 1px 1px #000000;
+    font-weight: bold;
+ }
+p input:not(:checked) + span { 
+    color: rgb(200,0,0); ; 
+	  text-shadow: -1px -1px 1px #000000, 1px 1px 1px #000000;
+
+	  
+ }
+ h1,h2,h3,h4 {
+ 	color: rgb(0,0,250);
+ }
+ caption {
+ 	  text-shadow: -2px -2px 5px #000000, 3px 3px 8px #000000, 6px 6px 10px #000000, 4px 4px 9px #000000;
+ }
+ div.newcalform {
+  background-color: rgba(20,200,200,0.1);
+    clear: both ; 
+ }
+ .accordion{
+ background-color: rgba(20,200,200,0.1);
+  width: 20%;
+  padding: 0;
+  position: relative; 
+  left: 10px;
+  float: left; 
+  font: normal 10px Helvetica, Arial, sans-serif;
+} 
+.accordion2{
+background-color: rgba(20,200,200,0.1);
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+.toggle-box {
+  /* по умаолчанию скрыт */
+  display: none;
+}
+ 
+/* формируем внешний вид панелей аккордеона */
+  
+
+.toggle-box + label { 
+background: -moz-linear-gradient(
+		top,
+		#a3a3a3 0%,
+		#00c8c8 36%,
+		#24bdb3 59%,
+		#00ffff 47%,
+		#000000);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#a3a3a3),
+		color-stop(0.36, #00c8c8),
+		color-stop(0.59, #24bdb3),
+		color-stop(0.47, #00ffff),
+		to(#000000));
+	border: 1px solid #c80000;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font: normal 14px Helvetica, Arial, sans-serif;
+  line-height: 15px;
+  padding: 8px 8px; 
+  margin-bottom: 0px;
+    text-shadow: -1px -1px 3px #000000, 3px 3px 8px #000000, 4px 4px 9px #000000;
+}
+label a, a:hover{color: #ddd;}
+
+/* формируем внешний вид панелей при наведении */
+ 
+.toggle-box + label:hover{opacity: 0.9;} 
+ 
+/* формируем внешний вид панелей при нажатии на них */
+ 
+.toggle-box + label:active{
+  background: #6c6e74;
+  background: -moz-linear-gradient(top,  #6c6e74 0%, #545359 11%, #756d73 84%, #4b4d51 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c6e74), color-stop(11%,#545359), color-stop(84%,#756d73), color-stop(100%,#4b4d51));
+  background: -webkit-linear-gradient(top,  #6c6e74 0%,#545359 11%,#756d73 84%,#4b4d51 100%);
+  background: -o-linear-gradient(top,  #6c6e74 0%,#545359 11%,#756d73 84%,#4b4d51 100%);
+  background: -ms-linear-gradient(top,  #6c6e74 0%,#545359 11%,#756d73 84%,#4b4d51 100%);
+  background: linear-gradient(to bottom,  #6c6e74 0%,#545359 11%,#756d73 84%,#4b4d51 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545359', endColorstr='#4b4d51',GradientType=0 );    
+}
+ 
+/* содержание блоков скрыто */
+ 
+.toggle-box + label + div {
+  display: none;
+}
+ 
+/* при обработке флажка (checkbox) показываем блок с содержанием */
+ 
+.toggle-box:checked + label + div {
+  display: block;
+}
+ 
+/* формируем внешний вид кнопки переключателя на панели справа */
+ 
+.toggle-box + label:before {
+  background: #404247;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  color: #C9C9C9;
+  content: "+";
+  display: block;
+  float: right;
+  font-size: 14px;
+  font-weight: bold; 
+  height: 18px;
+  line-height: 18px;
+  margin: 2px 5px 0px;
+  text-align: center;
+  width: 18px;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1); 
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1); 
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0, .2), 1px 1px 1px rgba(255,255,255, .1);
+}
+.toggle-box:checked + label:before {
+  content: "\2212";
+}
+ 
+/* оформляем блок с содержанием */
+ .box .box{
+background-color: rgba(250,250,25,0.1);
+  padding: 2px 10px 5px 1px;
+  margin: 1px;
+ }
+ .box .box .box{
+background-color: rgba(0,100,155,0.8);  
+  padding: 2px 10px 5px 0px;
+  margin: 1px;
+ }
+.box{
+  background: #fefefe;
+  border-left: rgba(0,0,0,0.1) solid 1px;
+  border-right: rgba(0,0,0,0.1) solid 1px;
+  border-bottom: rgba(0,0,0,0.1) solid 1px;
+  padding: 10px 10px 10px;
+  font: 14px Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  line-height: 1;
+  padding: 2px 10px 5px 2px;
+  margin: 1px;
+  background-color: rgba(20,250,255,0.5);
+  text-shadow: -1px -1px 3px #000000, 3px 3px 8px #000000, 4px 4px 9px #000000;
+}
+ .box hr {
+ 	margin: 0px;
+ 	padding: 0;
+ 	color: red; 
+ } 
+.box a {
+	position: relative; 
+	top: -5px;
+ 	margin-top: 5px;
+ 	padding: 0;
+ 	color: rgb(255,255,0); 
+ 	cursor: pointer; 
+ }
+ .box a:hover {
+	position: relative; 
+	top: -7px;
+ 	color: rgb(25,25,250); 
+ 	cursor: pointer; 
+ }
+ .box .box {
+	 font: normal 1em Helvetica, Arial, sans-serif;
+}
+.box .box .toggle-box + label {
+	background: -moz-linear-gradient(
+		top,
+		#a3a3a3 0%,
+		#fafaf9 50%,
+		#000000);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#a3a3a3),
+		color-stop(0.50, #fafaf9),
+		to(#000000));
+		color: #ffffff; 
+	text-align: center; 
+}
+/* значения встраиваемых картинок в блоки */
+ 
+.box img{
+  height: auto;
+
+}
+.left-img{  
+  float: left; 
+  margin: 5px 10px 0px 0px;
+}
+.right-img{
+  float: right; 
+  margin: 5px 0 0 10px;
+}
+.large-img {width: 100%;margin-bottom: 5px;}
+
+/* Стили модального окна */
+
+/* кнопка закрытия окна */
+.modal .btn-close {
+    color: #aaa;
+    cursor: pointer;
+    font-size: 30px;
+    text-decoration: none;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    zoom: 2;
+}
+.modal .btn-close:hover {
+    color: red;
+}
+/* слой затемнения */
+.modal-wrap:before {
+    content: "";
+    display: none;
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+}
+.modal-overlay {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 102;
+}
+/* активация слоя затемнения и модального блока */
+.modal-open:checked ~ .modal-wrap:before,
+.modal-open:checked ~ .modal-wrap .modal-overlay {
+    display: block;
+}
+.modal-open:checked ~ .modal-wrap .modal-dialog {
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    top: 5%;
+}
+/* элементы модального окна */
+.modal-dialog {
+    background: rgba(10,250,250,1);
+    border: none;
+    border-radius: 5px;
+    position: fixed;
+    width: 60%;
+    max-width: 600px;
+    left: 50%;
+    top: 0px;
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    -webkit-transform: translate(-50%, -500%);
+    -ms-transform: translate(-50%, -500%);
+    -o-transform: translate(-50%, -500%);
+    transform: translate(-50%, -500%);
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    -moz-transition: -moz-transform 0.4s ease-out;
+    -o-transition: -o-transform 0.4s ease-out;
+    transition: transform 0.4s ease-out;
+    z-index: 103;
+}
+div.modal-dialog {
+	max-height: 90%; 
+    overflow: auto;
+}
+.modal-body {
+  padding: 10px;
+  padding-left: 20px; 
+}
+.modal-body {
+	text-align: left; 
+    margin: 0;
+    font-size : 1.5em; 
+}
+textarea.modal {
+	background: rgb(10,200,220); 
+    font-size : 0.8em; 
+	}
+ 
+.modal-note {
+  border-left: rgba(0,0,0,0.1) solid 1px;
+  border-right: rgba(0,0,0,0.1) solid 1px;
+  border-bottom: rgba(0,0,0,0.1) solid 1px;
+  border-radius: 10px; 
+  padding: 10px 10px 10px;
+  background-color: rgba(20,20,200,0.2);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+  cursor: pointer; 
+}
+.modal-note:hover {
+	  background-color: rgba(20,20,220,0.3);
+}
+.modal-note2 {
+  border-left: rgba(0,0,0,0.1) solid 1px;
+  border-right: rgba(0,0,0,0.1) solid 1px;
+  border-bottom: rgba(0,0,0,0.1) solid 1px;
+  border-radius: 10px; 
+  padding: 10px 10px 10px;
+  background-color: rgba(200,200,200,0.5);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+
+}
+
+.tdbody {
+	background: rgb(180,180,220); 
+
+    color: rgb(000,000,000);
+	}
+.elow {
+	    background: -moz-linear-
+ gradient(#BBff00, #00ff00);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#BBff00), to(#ffFF00));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff00', endColorstr='#ffFF00');
+    color: rgb(000,000,000);
+    font-size: 1em; 
+}
+.modal-body a {
+	padding: 5px; 
+	margin: 5px; 
+    font-size: 1em; 
+}
+.modal-body p button {
+	padding: 5px; 
+	margin: 5px; 
+    font-size: 1.2em; 
+}
+.modal-header,
+.modal-footer {
+    padding: 20px 20px;
+}
+.modal-header {
+    border-bottom: #eaeaea solid 1px;
+}
+
+.modal-footer {
+    border-top: #eaeaea solid 1px;
+    text-align: right;
+}
+/* адаптивные картинки в модальном блоке */
+.modal-body img { 
+    max-width: 100%;
+    height: auto;
+}
+/* кнопки */
+.btny {
+     background: -moz-linear-
+ gradient(#BBff00, #00ff00);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#BBff00), to(#00FF00));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BBff00', endColorstr='#00FF00');
+    color: rgb(000,000,000); 
+    border: #555 solid 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+    min-width: 80px;
+    position: relative;
+}
+/* кнопки */
+.btnn {
+     background: -moz-linear-
+ gradient(#c64000, #990000);
+	   background: -webkit-gradient(linear, 0 0, 0 100%, from(#c64000), to(#990000));
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c64000', endColorstr='#990000');
+    color: rgb(255,255,000); 
+    border: #555 solid 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+    min-width: 80px;
+    position: relative;
+}
+.btn:hover, .btn:focus {
+    background: #f2f2f2;
+}
+.btn-primary {
+    background: #428bca;
+    border-color: #357ebd;
+    color: #fff;
+}
+.btn-primary:hover{
+    background: #66A1D3;
+}
+.modal-header h2 {
+    color: #ffff00;  
+    font-size: 2em;
+    font-weight: normal;
+    line-height: 1;    
+    margin: 0;
+}
+button {
+	box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+}
+
+
+
+.acw {
+	background-color: rgba(0,0,155,0.3);
+}
+p.note {
+	background-color: rgba(0,0,5,0.5);
+		
+	padding: 5px; 
+	}
+	
+.help {
+	background-color: rgba(200,200,200,0.1);
+}
+.infor {
+	color: #ff0000;
+}
+
+.infog {
+	color: #00ff00;
+}
+
+.infob {
+	color: #0000ff; 
+}
+
+.inforg {
+	color: #ffff00;
+}
+
+.inforb {
+	color: #ff00ff;
+}
+
+.infogb {
+	color: #00ffff;
+}
+
+img {
+	width:30%;
+	margin: 20px; 
+	psdding:0;
+	border-width: 0; 
+}
+div.help .accordion {
+	width:80%;
+	position: relative; 
+	left:0;
+}
+div.help .box {
+	font-size: 2.5em; 
+}
+div.help h1 {
+	font-size: 2.5em; 
+	color: #ff0; 
+  text-shadow: -1px -1px 3px #000000, 3px 3px 8px #000000, 4px 4px 9px #000000;
+  
+}
+div.help .toggle-box + label {
+	 font: normal 5em Helvetica, Arial, sans-serif;
+	text-align: center; 
+}
+.calendar .help {
+	color: #ffff00; 
+	padding: 5px; 
+	zoom: 1.5;
+	text-align : left; 
+	position: relative; 
+	left: 15%;
+	width: 70%;
+	background-color: rgba(0,0,200,0.8);
+}
+
+.tdebag {
+background-color: rgba(250,250,250,1); 
+z-index: 100;
+width:100%; 
+font: normal 2em Helvetica, Arial, sans-serif;
+	}
+span.right {
+	float: right; 
+	zoom: 1;
+	margin: 5px; 
+}
+a:hover {
+	color: rgb(150,25,150);
+    cursor: pointer;
+}
+a:hover span {
+	color: rgb(255,255,255);
+	  text-shadow: -1px -1px 3px #000000, 1px 1px 2px #000000, 2px 2px 3px #000000;
+    cursor: pointer;
+}
